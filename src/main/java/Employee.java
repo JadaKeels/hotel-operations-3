@@ -21,11 +21,24 @@ public class Employee {
         this.hoursWorked = 0;
     }
 
+    //Original punchIn method
     public void punchIn(double time) {
         punchInTime = time;
         System.out.println(name + " punched in at " + time);
     }
 
+    //Overloaded punchIn method
+    public void punchIn() {
+        LocalDateTime now = LocalDateTime.now();
+
+        double currentTime =
+                now.getHour() +
+                        (now.getMinute() / 60.0);
+
+        punchIn(currentTime);
+    }
+
+    //Original punchOut method
     public void punchOut(double time) {
 
         double hours = time - punchInTime;
