@@ -48,6 +48,18 @@ public class Employee {
         System.out.println("Hours worked this shift: " + hours);
     }
 
+    //Overloaded punchOut method
+    public void punchOut() {
+
+        LocalDateTime now = LocalDateTime.now();
+
+        double currentTime =
+                now.getHour() +
+                        (now.getMinute() / 60.0);
+
+        punchOut(currentTime);
+    }
+
     public double getHoursWorked() {
         return hoursWorked;
     }
